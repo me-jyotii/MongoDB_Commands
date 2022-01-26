@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB cheatsheet - 2</title>
+</head>
+<body>
+    <h1>MongoDB commands for database</h1>
+    <hr><hr>
+
+    <h3>view all db present</h3>
+    <p><b>show dbs</b></p>
+    <br>
+    <hr>
+
+    <h3>create or swith to another db</h3>
+    <p><b>use db_name</b></p>
+    <br>
+    <hr>
+
+    <h3>view current working db</h3>
+    <p><b>db</b></p>
+    <br>
+    <hr>
+    
+    <h3>view all db present</h3>
+    <p><b>db.dropDatabase()</b></p>
+    <br>
+    <hr>
+
+    <h3>view the collections present in current db</h3>
+    <p><b>show collections</b></p>
+    <br>
+    <hr>
+    
+    <h3>crete a collection</h3>
+    <p><b>db.createCollection('collection_name')</b></p>
+    <br>
+    <hr>
+
+    <h1>MongoDB commands for collections</h1>
+    <hr><hr>
+
+    <h3>view the collections present in current db</h3>
+    <p><b>show collections</b></p>
+    <br>
+    <hr>
+
+    <h3>delete a collection</h3>
+    <p><b>db.colllection_name.drop()</b></p>
+    <br>
+    <hr>
+
+    <h3>delete a collection</h3>
+    <p><b>db.colllection_name.drop()</b></p>
+    <br>
+    <hr>
+
+    <h1>MongoDB commands for rows</h1>
+    <hr><hr>
+
+    <h3>show all rows in a collection</h3>
+    <p><b>db.collection_name.find()</b></p>
+    <br>
+    <hr>
+
+    <h3>show the first matched row in a collection</h3>
+    <p><b>db.collection_name.findOne({name:'Alpha'})</b></p>
+    <br>
+    <hr>
+
+    <h3>show all rows in a collection (prettified)</h3>
+    <p><b>db.collection_name.find().pretty()</b></p>
+    <br>
+    <hr>
+
+    <h3>show all rows in a collection (sorted and prettified)</h3>
+    <p><b>db.collection_name.find().sort(age:1/-1).pretty()</b></p>
+    <br>
+    <hr>
+
+    <h3>show all rows in a collection (prettified nd limited)</h3>
+    <p><b>db.collection_name.find().pretty().limit(2)</b></p>
+    <br>
+    <hr>
+
+    <h3>show count of rows in a collection</h3>
+    <p><b>db.collection_name.find().count()</b></p>
+    <br>
+    <hr>
+
+    <h3>show count of rows in a collection with specifies object</h3>
+    <p><b>db.collection_name.find({name='Alpha'}).count()</b></p>
+    <br>
+    <hr>
+
+    <h3>insert one row to collection</h3>
+    <pre><p><b>db.collection_name.insert({
+        'name': 'Devid',
+        'lang': 'English',
+        'City': 'USA'
+    })</b></p></pre>
+    <br>
+    <hr>
+
+    <h3>insert many rows to collection</h3>
+    <pre><p><b>db.collection_name.insert([{
+        'name': 'Devid',
+        'lang': 'English',
+        'City': 'USA'
+    },
+    {
+        'name': 'Vivan',
+        'lang': 'Spanish',
+        'City': 'Japan'
+    },
+    {
+        'name': 'Alpha',
+        'lang': 'Arbi',
+        'City': 'Saudi'
+    }])</b></p></pre>
+    <br>
+    <hr>
+
+    <h3>update a row</h3>
+  <pre><p><b>db.collection_name.update({name:'Alpha'},
+        {
+            'name': 'Alpha',
+            'lang': 'Arbi',
+            'City': 'Pakistan'
+        }
+    })</b></p></pre>  
+    <br>
+    <hr>
+
+    <h3>update a row if not present insert the row with specified value</h3>
+  <pre><p><b>db.collection_name.update({name:'Alpha'},
+        {
+            'name': 'Alpha',
+            'lang': 'Arbi',
+            'City': 'Pakistan'
+        }
+    },{upsert:true})</b></p></pre>  
+    <br>
+    <hr>
+
+    <h1>MongoDB commands to search</h1>
+    <hr><hr>
+
+    <h3>search data by passing object</h3>
+    <p><b>db.collection_name.find({lang:'English'})</b></p>
+    <p>OR</p>
+    <p><b>db.collection_name.find({lang:'English','name' = 'Alpha/Devid'})</b></p>
+    <hr>
+
+    <h3>MongoDB increment operators</h3>
+    <pre><p><b>db.collection_name.update({name:'Alpha'},
+          {$inc:{
+              age:2
+          }
+      }})</b></p></pre>  
+    <br>
+    <hr>
+
+
+    <h3>MongoDB rename operators</h3>
+    <pre><p><b>db.collection_name.update(
+            {$rename:{
+                lang:'language'
+            }
+        }})</b></p></pre>  
+    <br>
+    <hr>
+
+    <h3>delete a row</h3>
+    <p><b>db.collection_name.remove({name:'Alpha'})
+    </b></p> 
+    <br>
+    <hr>
+
+    <h3>find a row with some filter (less than)</h3>
+    <p><b>db.collection_name.find({age:{$lt:50}})
+    </b></p> 
+    <br>
+    <hr>
+
+    <h3>find a row with some filter (greater than or equal)</h3>
+    <p><b>db.collection_name.find({age:{$gte:50}})
+    </b></p> 
+    <br>
+    <hr>
+
+
+
+
+</body>
+</html>
